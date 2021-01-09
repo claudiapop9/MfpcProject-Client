@@ -1,0 +1,13 @@
+<h2>Applications</h2>
+
+<div *ngFor="let application of applications">
+
+	<h3>
+		{{ application.name }}
+	</h3>
+
+	<p *ngIf="application.description">
+		Description: {{ application.description }}
+	</p>
+
+</div>
