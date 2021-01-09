@@ -1,32 +1,21 @@
+<h3>Add new Calibrator</h3>
 <div style="width: 400px; margin: auto;">
 	<div class="submit-form">
 		<div *ngIf="!submitted">
 			<div class="form-group">
 				<label for="value">Value</label>
-				<input
-          type="text"
-          class="form-control"
-          id="value"
-          required
-          [(ngModel)]="calibrator.value"
-          name="value"
-        />
-      </div>
-				<div class="form-group">
-					<label for="unit">Unit</label>
-					<input
-          class="form-control"
-          id="unit"
-          required
-          [(ngModel)]="calibrator.unit"
-          name="unit"
-        />
-      </div>
-					<button (click)="saveCalibrator()" class="btn btn-success">Submit</button>
-				</div>
-				<div *ngIf="submitted">
-					<h4>You submitted successfully!</h4>
-					<button class="btn btn-success" (click)="newCalibrator()">Add</button>
-				</div>
+				<input type="text" class="form-control" id="value" required [(ngModel)]="calibrator.value"
+					name="value" />
 			</div>
+			<div class="form-group">
+				<label for="unit">Unit</label>
+				<input class="form-control" id="unit" required [(ngModel)]="calibrator.unit" name="unit" />
+			</div>
+			<button (click)="saveCalibrator()" class="btn btn-success">Submit</button>
 		</div>
+		<div *ngIf="submitted">
+			<h4>You submitted successfully!</h4>
+			<button class="btn btn-success" (click)="newCalibrator()">Add</button>
+		</div>
+	</div>
+</div>

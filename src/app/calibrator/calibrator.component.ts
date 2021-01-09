@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { CalibratorService } from "../services/calibrator.service";
 @Component({
   selector: "app-calibrator",
@@ -10,7 +11,7 @@ export class CalibratorComponent implements OnInit {
   currentCalibrator = null;
   currentIndex = -1;
   value = "";
-  constructor(private calibratorService: CalibratorService) {}
+  constructor(private calibratorService: CalibratorService, private router:Router) {}
 
   ngOnInit(): void {
     this.retrieveCalibrators();
@@ -39,15 +40,8 @@ export class CalibratorComponent implements OnInit {
     this.currentIndex = index;
   }
 
-  removeAllCalibrators(): void {
-    this.calibratorService.deleteAll().subscribe(
-      response => {
-        console.log(response);
-        this.retrieveCalibrators();
-      },
-      error => {
-        console.log(error);
-      }
-    );
+  goToAddCalibrators(): void{
+    const navigationDetails: string[] = ['/add-calibrator'];
+    this.router.navigate(navigationDetails);
   }
 }

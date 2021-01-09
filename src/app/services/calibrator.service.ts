@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
-const baseUrl = "http://localhost:44326/api/calibrators";
+const baseUrl = "https://localhost:44326/api/Calibrators";
 @Injectable({
   providedIn: "root"
 })

@@ -15,6 +15,7 @@ import { DepartmentAddComponent } from "./department-add/department-add.componen
 import { CalibratorDetailsComponent } from "./calibrator-details/calibrator-details.component";
 import { CalibratorService } from "./services/calibrator.service";
 import { DepartmentComponent } from "./department/department.component";
+import {APP_BASE_HREF} from '@angular/common';
 
 @NgModule({
   imports: [
@@ -27,7 +28,7 @@ import { DepartmentComponent } from "./department/department.component";
       { path: "departments", component: DepartmentComponent },
       { path: "add-departments", component: DepartmentAddComponent },
       { path: "calibrators", component: CalibratorComponent },
-      { path: "calibrator/:id", component: CalibratorDetailsComponent },
+      { path: "calibrators/:id", component: CalibratorDetailsComponent },
       { path: "add-calibrator", component: CalibratorAddComponent }
     ]),
     HttpClientModule
@@ -45,6 +46,6 @@ import { DepartmentComponent } from "./department/department.component";
     DepartmentComponent
   ],
   bootstrap: [AppComponent],
-  providers: [CalibratorService]
+  providers: [[{provide: APP_BASE_HREF, useValue: '/'}], CalibratorService]
 })
 export class AppModule {}
