@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { HelloComponent } from "./hello.component";
@@ -9,14 +10,27 @@ import { LotComponent } from "./lot/lot.component";
 import { DepartmentsComponent } from "./departments/departments.component";
 import { ApplicationComponent } from "./application/application.component";
 import { RouterModule } from "@angular/router";
-import { TopBarComponent } from './top-bar/top-bar.component';
+import { TopBarComponent } from "./top-bar/top-bar.component";
+import { CalibratorAddComponent } from "./calibrator-add/calibrator-add.component";
+import { DepartmentAddComponent } from "./department-add/department-add.component";
+import { CalibratorDetailsComponent } from "./calibrator-details/calibrator-details.component";
+import { CalibratorService } from "./services/calibrator.service";
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([{ path: "", component: ApplicationComponent }])
+    RouterModule.forRoot([
+      { path: "", redirectTo: "applications", pathMatch: "full" },
+      { path: "applications", component: ApplicationComponent },
+      { path: "departments", component: DepartmentsComponent },
+      { path: "add-departments", component: DepartmentAddComponent },
+      { path: "calibrators", component: CalibratorComponent },
+      { path: "calibrator/:id", component: CalibratorDetailsComponent },
+      { path: "add-calibrator", component: CalibratorAddComponent }
+    ]),
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
@@ -25,8 +39,12 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     LotComponent,
     DepartmentsComponent,
     ApplicationComponent,
-    TopBarComponent
+    TopBarComponent,
+    CalibratorAddComponent,
+    DepartmentAddComponent,
+    CalibratorDetailsComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [CalibratorService]
 })
 export class AppModule {}

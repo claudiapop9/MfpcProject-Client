@@ -1,0 +1,35 @@
+<div class="list row">
+	<div class="col-md-6">
+		<h4>Calibrators List</h4>
+		<ul class="list-group">
+			<li class="list-group-item" *ngFor="let calibrator of calibrators; let i = index"
+				[class.active]="i == currentIndex" (click)="setActiveCalibrator(calibrator, i)">
+				{{ calibrator.value }}
+			</li>
+		</ul>
+
+		<button class="m-3 btn btn-sm btn-danger" (click)="removeAllCalibrators()">
+      Remove All
+    </button>
+	</div>
+	<div class="col-md-6">
+		<div *ngIf="currentCalibrator">
+			<h4>Calibrator</h4>
+			<div>
+				<label><strong>Value:</strong></label> {{ currentCalibrator.value }}
+			</div>
+			<div>
+				<label><strong>Unit:</strong></label>
+				{{ currentCalibrator.unit }}
+			</div>
+			<a class="badge badge-warning" routerLink="/calibrators/{{ currentCalibrator.id }}">
+				Edit
+			</a>
+		</div>
+
+		<div *ngIf="!currentCalibrator">
+			<br />
+			<p>Please click on a Calibrator...</p>
+		</div>
+	</div>
+</div>
