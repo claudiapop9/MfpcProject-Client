@@ -1,0 +1,35 @@
+<div class="list row">
+	<div class="col-md-6">
+		<h4>Departments List</h4>
+		<ol class="list-group">
+			<li class="list-group-item" *ngFor="let department of departments; let i = index"
+				[class.active]="i == currentIndex" (click)="setActiveDepartment(department, i)">
+				{{ department.name }}
+			</li>
+		</ol>
+
+		<button class="m-3 btn btn-sm btn-danger" (click)="goToAddDepartments()">
+			Add
+		</button>
+	</div>
+	<div class="col-md-6">
+		<div *ngIf="currentDepartment">
+			<h4>Department</h4>
+			<div>
+				<label><strong>Name:</strong></label> {{ currentDepartment.name }}
+			</div>
+			<div>
+				<label><strong>Country:</strong></label>
+				{{ currentDepartment.country }}
+			</div>
+			<a class="badge badge-warning" routerLink="/departments/{{ currentDepartment.id }}">
+				Edit
+			</a>
+		</div>
+
+		<div *ngIf="!currentDepartment">
+			<br />
+			<p>Please click on a Department...</p>
+		</div>
+	</div>
+</div>
