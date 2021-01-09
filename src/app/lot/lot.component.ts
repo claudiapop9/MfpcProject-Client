@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-lot',
-  templateUrl: './lot.component.html',
-  styleUrls: ['./lot.component.css']
+  selector: "app-lot",
+  templateUrl: "./lot.component.html",
+  styleUrls: ["./lot.component.css"]
 })
 export class LotComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
