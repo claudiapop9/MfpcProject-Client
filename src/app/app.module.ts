@@ -17,6 +17,7 @@ import { CalibratorService } from "./services/calibrator.service";
 import { DepartmentService } from "./services/department.service";
 import { DepartmentComponent } from "./department/department.component";
 import {APP_BASE_HREF} from '@angular/common';
+import { DepartmentDetailsComponent } from './department-details/department-details.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {APP_BASE_HREF} from '@angular/common';
     CalibratorAddComponent,
     DepartmentAddComponent,
     CalibratorDetailsComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    DepartmentDetailsComponent
   ],
   bootstrap: [AppComponent],
   providers: [[{provide: APP_BASE_HREF, useValue: '/'}], CalibratorService, DepartmentService]
