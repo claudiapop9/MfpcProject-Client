@@ -18,6 +18,9 @@ import { DepartmentService } from "./services/department.service";
 import { DepartmentComponent } from "./department/department.component";
 import {APP_BASE_HREF} from '@angular/common';
 import { DepartmentDetailsComponent } from './department-details/department-details.component';
+import { ApplicationDetailsComponent } from './application-details/application-details.component';
+import { ApplicationAddComponent } from './application-add/application-add.component';
+import { ApplicationService } from "./services/application.service";
 
 
 @NgModule({
@@ -28,8 +31,10 @@ import { DepartmentDetailsComponent } from './department-details/department-deta
     RouterModule.forRoot([
       { path: "", redirectTo: "applications", pathMatch: "full" },
       { path: "applications", component: ApplicationComponent },
+      { path: "add-application", component: ApplicationAddComponent },
       { path: "departments", component: DepartmentComponent },
       { path: "add-departments", component: DepartmentAddComponent },
+      { path: "departments/:id", component: DepartmentDetailsComponent },
       { path: "calibrators", component: CalibratorComponent },
       { path: "calibrators/:id", component: CalibratorDetailsComponent },
       { path: "add-calibrator", component: CalibratorAddComponent }
@@ -47,9 +52,11 @@ import { DepartmentDetailsComponent } from './department-details/department-deta
     DepartmentAddComponent,
     CalibratorDetailsComponent,
     DepartmentComponent,
-    DepartmentDetailsComponent
+    DepartmentDetailsComponent,
+    ApplicationDetailsComponent,
+    ApplicationAddComponent
   ],
   bootstrap: [AppComponent],
-  providers: [[{provide: APP_BASE_HREF, useValue: '/'}], CalibratorService, DepartmentService]
+  providers: [[{provide: APP_BASE_HREF, useValue: '/'}], CalibratorService, DepartmentService, ApplicationService]
 })
 export class AppModule {}

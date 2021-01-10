@@ -1,0 +1,29 @@
+<h3>Add new Application</h3>
+<div style="width: 400px; margin: auto;">
+	<div class="submit-form">
+		<div *ngIf="!submitted">
+			<div class="form-group">
+				<label for="data">Data</label>
+				<input type="text" class="form-control" id="data" required [(ngModel)]="application.data"
+					name="data" />
+			</div>
+			<div class="form-group">
+				<label for="calibratorId">Calibrator Id</label>
+				<input class="form-control" id="calibratorId" required [(ngModel)]="application.calibratorId" name="calibratorId" />
+            </div>
+            <div class="form-group">
+				<label for="departmentId">Department Id</label>
+				<input class="form-control" id="departmentId" required [(ngModel)]="application.departmentId" name="departmentId" />
+            </div>
+            <div class="form-group">
+				<label for="lotId">Lot Id</label>
+				<input class="form-control" id="lotId" required [(ngModel)]="application.lotId" name="lotId" />
+			</div>
+			<button (click)="saveApplication()" class="btn btn-success">Submit</button>
+		</div>
+		<div *ngIf="submitted">
+			<h4>You submitted successfully!</h4>
+			<button class="btn btn-success" (click)="newApplication()">Add</button>
+		</div>
+	</div>
+</div>
